@@ -174,8 +174,8 @@ void main() {
         await tester.pumpWidget(buildTestWidget(routine: routine));
         await tester.pumpAndSettle();
 
-        // Assert
-        expect(find.byType(InkWell), findsOneWidget);
+        // Assert - multiple InkWells exist (Card + Button)
+        expect(find.byType(InkWell), findsWidgets);
       });
     });
 
@@ -209,8 +209,9 @@ void main() {
         await tester.pumpWidget(buildTestWidget(routine: routine));
         await tester.pumpAndSettle();
 
-        // Assert
-        expect(find.byType(FilledButton), findsOneWidget);
+        // Assert - FilledButton.tonalIcon renders Start button with play icon
+        expect(find.text('Start'), findsOneWidget);
+        expect(find.byIcon(Icons.play_arrow), findsOneWidget);
       });
 
       testWidgets('tapping Start shows confirmation dialog', (tester) async {
