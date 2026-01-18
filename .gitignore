@@ -2,6 +2,9 @@
 .env
 !.env.example
 
+# Test config with credentials
+integration_test/test_config_local.dart
+
 # Miscellaneous
 *.class
 *.log
